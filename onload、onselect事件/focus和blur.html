@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>focus和blur</title>
+</head>
+<body>
+	<input type="text" id="inp"/><span id="myspan"></span>
+
+	注意：onfocus/onblur两个事件并不支持所有的html对象
+	<script type="text/javascript">
+		var inp=document.getElementById("inp");
+		var myspan=document.getElementById("myspan");
+		//获得焦点事件
+		inp.onfocus=function(){
+			myspan.innerHTML="用户正在输入";
+		}
+		//失去焦点事件
+		inp.onblur=function(){
+			myspan.innerHTML=inp.value;
+		}
+		myspan.onfocus=function(){
+			alert("a");
+		}
+	</script>
+</body>
+</html>

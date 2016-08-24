@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+    fromCharCode：把一个Unicode编码值换成字符串
+	<input type="text" id="inp1" value="keydown"><br/><br/>
+	<input type="text" id="inp2" value="keypress">
+	<script type="text/javascript">
+		var inp1=document.getElementById("inp1");
+		var inp2=document.getElementById("inp2");
+		//在谷歌上是keypress是有Unicode（ASCII）的值的，而在火狐上却为空
+		//onkeydown的ASCII值是不区分大小写，值都是大写
+		inp1.onkeydown=function(event){
+			var e=event?event:window.event;
+			var keycode=e.keyCode;
+			var txt=String.fromCharCode(keycode);
+			console.log("keydown:"+txt);
+		};
+		//onkeypress的ASCII值是区分大小写
+		inp2.onkeypress=function(event){
+			var e=event?event:window.event;
+			//兼容Firefox
+			if(e.keyCode){
+				var keycode=e.keyCode;
+				var txt=String.fromCharCode(keycode);
+			}else{
+				var keycode=e.which;  //取键值
+				var txt=String.fromCharCode(keycode);
+			}
+			console.log("keypress: "+txt);
+		}
+	</script>
+</body>
+</html>

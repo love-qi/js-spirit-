@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	// window.setTimeout(function(){
+	// 	document.getElementsByTagName("p")[0].style.color="red";
+	// },1);  //假如DOM树的加载时间超过了30毫秒
+	// 
+	// 网页加载完毕之后执行的代码       是否完美解决DOMReady
+	window.onload=function(){
+		document.getElementsByTagName("p")[0].style.color="red";
+	}
+	</script>
+</head>
+<body>
+	<p>显示颜色为红色</p>
+</body>
+</html>

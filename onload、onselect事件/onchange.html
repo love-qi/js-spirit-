@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	onchange：内容改变的时候触发事件。并不是时时监听，而是失去焦点的时候焦点
+	<input type="text" id="inp"/>
+	<select id="sel">
+		<option value="fj">福建</option>
+		<option value="hn">湖南</option>
+		<option value="nm">内蒙</option>
+		<option value="yn">云南</option>
+		<option value="bh">北海</option>
+	</select>
+	<script type="text/javascript">
+		var inp=document.getElementById("inp");
+		var sel=document.getElementById("sel");
+		inp.onchange=function(){
+			alert("内容改变");
+		}
+
+		sel.onchange=function(){
+			//value区option  value属性的值
+			//console.log(this.text);
+			//
+			//获取到下拉列表的值
+			//selectedIndex 属性可设置或返回下拉列表中被选选项的索引号。
+			var index=this.selectedIndex;
+			//console.log(index);
+			console.log(this.options[index].value);
+			console.log(this.options[index].text);
+		}
+	</script>
+</body>
+</html>

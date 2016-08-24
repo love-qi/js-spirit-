@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>二维数组练习</title>
+</head>
+<body>
+	<!-- <table border 1px cellspacing="0">
+		<tr>
+			<td>张三</td>
+			<td>19</td>
+			<td>男</td>
+		</tr>
+		<tr>
+			<td>李四</td>
+			<td>19</td>
+			<td>男</td>
+		</tr>
+		<tr>
+			<td>王五</td>
+			<td>19</td>
+			<td>男</td>
+		</tr>
+		<tr>
+			<td>赵六</td>
+			<td>19</td>
+			<td>男</td>
+		</tr>
+	</table> -->
+	<script type="text/javascript">
+		var arr=[["张三","19","男"],["李四","22","女"],["王五","20","男"],["赵六","21","女"]];
+		document.write("<table border 1px cellspacing='0'>");
+		document.write(arr.length);
+		for(var i=0;i<arr.length;i++){
+			document.write("<tr>");
+			var arr1=arr[i];
+			for(var i=0;i<arr1.length;i++){
+				document.write("<td>"+arr1[i]+"</td>");
+			}	
+			document.write("</tr>");
+		}
+		//document.write("</tr>");
+		document.write("</table>");
+	</script>
+</body>
+</html>

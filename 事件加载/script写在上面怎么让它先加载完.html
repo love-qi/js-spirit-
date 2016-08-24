@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<script type="text/javascript">
+    //      延迟0.3秒再运行这段代码
+	// window.setTimeout(function(){
+	// 	document.getElementsByTagName("P")[0].style.color="red";
+	// },30);//假如DOM树加载时间超过了30毫秒
+
+	//网页加载完毕之后执行代码
+	window.onload=function(){
+		document.getElementsByTagName("p")[0].style.color="red";
+	}
+</script>
+</head>
+<body>
+	<p>文字变红</p>
+</body>
+</html>

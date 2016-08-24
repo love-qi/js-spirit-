@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>键盘事件.案例</title>
+</head>
+<body>
+	<pre>
+		获得焦点：focus
+		失去焦点：blur
+	</pre>
+	<div>
+		<p id="myp">当前最火的新闻</p>
+		<textarea id="myt" rows="5px" cols="40px"></textarea>
+
+	</div>
+	<script type="text/javascript">
+			var myp=document.getElementById("myp");
+			var myt=document.getElementById("myt");
+			myt.onfocus=function(){
+				var str=myt.value;
+				if(str.length<=140){
+					myp.innerHTML="你还可以输入"+(140-str.length)+"个字";
+				}else{
+					myp.innerHTML="你已经超出"+(str.length-140)+"个字";
+				}
+			}
+			myt.onblur=function(){
+				myp.innerHTML="当前最火的新闻";
+			}
+			myt.onkeyup=function(){
+				var str=myt.value;
+				if(str.length<=140){
+					myp.innerHTML="你还可以输入"+(140-str.length)+"个字";
+				}else{
+					myp.innerHTML="你已经超出"+(str.length-140)+"个字";
+				}
+			}
+		</script>
+</body>
+</html>

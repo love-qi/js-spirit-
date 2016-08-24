@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点击事件</title>
+</head>
+<body>
+	<input type="button" value="点我" onclick="show()">
+
+	<script type="text/javascript">
+	//第一种方案
+		function show(){
+			alert("叫你点就点啊，真傻");
+		}
+	</script>
+
+	<input type="button" value="双击点我"/>
+	<script type="text/javascript">
+		var btn=document.getElementsByTagName("input")[1];
+		//第二种方案
+		// btn.ondblclick=function(){
+		// 	alert("双击我");
+		// };
+		// 第三种方案
+		btn.addEventListener("dblclick",function(){
+			alert("双击我");
+		});
+	</script>
+</body>
+</html>

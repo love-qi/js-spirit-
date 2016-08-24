@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>找字符串里所有数字</title>
+</head>
+<body>
+    text：判断字符串里面是否能够匹配到正则，能够，返回true，不能，返回false
+	<script type="text/javascript">
+		var str="a343d4345fdwer45645f452";
+
+		function findNum(str){
+			//定义返回数组
+			var arr=[];
+			//定义临时变量
+			var temp="";
+			for(var i=0;i<str.length;i++){
+				//数字必然大于0，小于9
+				if(str.charAt(i)<='9' && str.charAt(i)>='0'){
+					temp+=str.charAt(i);
+				}else{
+					//假如temp是空，那么久没必要存到数组里面去
+					if(temp){
+						arr.push(temp);
+						//temp清空
+						temp="";
+					}
+				}
+			}
+			//用于处理最后是数字的情况
+			if(temp){
+				arr.push(temp);
+				temp="";
+			}
+			return arr;
+		}
+		function findNumByReg(str){
+			//match：匹配
+			return str.match(/\d+/g);
+		}
+		document.write(findNum(str)+"<br/>");
+		document.write(findNumByReg(str)+"<br/>" );
+
+
+		var str="sf345346sdfcsd45534fd5452";
+		var arr2=[];
+		var temp2="";
+		function findNum1(str){
+			if(str.charAt(i)<='9' && str.charAt(i)>=0){
+				temp2+=str.charAt(i);
+			}else{
+				if(temp2){
+					arr2.push(temp2);
+					temp2="";
+				}
+			}
+			return arr2;
+		}
+
+		function findNumByReg(str){
+			return str.match(/\d+/g);
+		}
+		document.write(findNum(str)+"<br/>");
+		document.write(findNumByReg(str)+"<br/>");
+
+	</script>
+</body>
+</html>

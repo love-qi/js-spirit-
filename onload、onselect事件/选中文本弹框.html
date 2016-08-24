@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style type="text/css">
+    *{
+    	padding:0;
+    	margin:0;
+    }
+	#mydiv{
+		display: none;
+		position: absolute;
+		left:0;
+		top:0;
+		background: #fff;
+		color:lime;
+		border: 1px solid gray;
+		padding:5px;
+	}
+	#txt{
+		width:800px;
+		height: 600px;
+		border:none;
+	}
+	.div1{
+		background: #fff;
+		border:1px solid #ccc;
+	}
+</style>
+</head>
+<body>
+    <!--readonly只读属性用户不能修改-->
+	<textarea id="txt" readonly="yes">测试文字</textarea>
+	<div id="mydiv">复制|搜索|翻译|百科|分享|二维码</div>
+	<span class="span1"></span>
+	<div class="div1">复制|搜索|翻译|百科|分享|二维码</div>
+
+	<script type="text/javascript">
+		var txt=document.getElementById("txt");
+		var mydiv=document.getElementById("mydiv");
+		var x,y=0;//鼠标位置
+
+		txt.onselect=function(){
+			//console.log(e.clientX);
+			//设置div出现的位置
+			mydiv.style.display="block";
+			mydiv.style.left=x+"px";
+			mydiv.style.top=y+10+"px";
+			
+		}
+		//先触发mouseup事件
+		txt.onmouseup=function(event){
+			var e=event?event:window.event;
+			x=e.clientX;
+			y=e.clientY;
+			
+		}
+		document.onmousedown=function(){
+			mydiv.style.display="none";
+		}
+	</script>
+</body>
+</html>

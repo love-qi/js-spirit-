@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义鼠标右键</title>
+</head>
+<body>
+    <p id="myp">点我，弹出自定义右键菜单</p>
+    <div id="mydiv">
+    	<li>你点啊</li>
+    	<li>你再点啊</li>
+    	<li>你再来点啊</li>
+    </div>
+
+	<script type="text/javascript">
+		var myp=document.getElementById("myp");
+		var mydiv=document.getElementById("mydiv");
+		myp.onmousemove=function(event){
+			var event= event ? event : window.event;   //兼容IE
+			// if(event.button==2){  //说明是右键
+			// 	document.oncontextmenu=function(aevent){ //阻止默认行为
+			// 		if(window.event){
+			// 			aevent=window.event;
+			// 			aevent.returnValue=false;  //IE中阻止事件的默认行为
+			// 		}else{
+			// 			aevent.preventDefault();   //现代浏览器阻止事件的默认行为
+			// 		}
+			// 	};
+				mydiv.style.cssText="display:block;position:absolute;top:"+(event.clientY+5)+"px;left:"+event.clientX+"px;";
+			//}
+		}
+		mydiv.onmouseout=function(){
+			//直接写css代码
+			setTimeout(function(){
+				mydiv.style.cssText="display:none;"},400);//延迟0.4s在隐藏
+		}
+	</script>
+</body>
+</html>

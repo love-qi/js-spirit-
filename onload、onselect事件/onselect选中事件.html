@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>onselect选中事件</title>
+</head>
+<body>
+	onselect：代表文本被选中<br />
+	<!--兼容火狐-->
+	<div id="test">这里是测试文字</div>
+	<input type="text" value="这里是测试文字，你选中试试" id="inp">
+	<textarea id="txt">这里是测试文字，试一试</textarea>
+	<script type="text/javascript">
+		var div=document.getElementById("test");
+		var inp=document.getElementById("inp");
+		var txt=document.getElementById("txt");
+
+		div.onselect=function(){
+			alert("你选一个试试");
+		}
+		inp.onselect=function(){
+			alert("你选一个试试");
+		}
+		txt.onselect=function(){
+			alert("你选一个试试");
+		}
+
+		//onselectstart几乎可以用于所以对象，触发的时间为目标，对象被开始选中时，即选中动作刚开始，尚未实际性被选中
+		//不兼容火狐
+		div.onselectstart=function(){
+			//专门用来阻止你选中文本
+			return false;
+		}
+	</script>
+</body>
+</html>

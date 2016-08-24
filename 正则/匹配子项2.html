@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匹配子项</title>
+</head>
+<body>
+     匹配子项  （）
+     字符类     []  代表在字符类里面任意选择一个去进行匹配，只能选择一个
+	<script type="text/javascript">
+		var str="aefcde";
+		var reg=/a[bcdef]f/;  //  /a(b|c|d|e|f)c/  反向引用
+		console.log(reg.test(str) );
+
+		//排除：在括号里面，最开始加一个 ^ ,代表排除
+		var str="atc";
+		var reg=/a[^ae]c/;
+		console.log(reg.test(str) );
+
+		//范围   -    注意：必须小的到大的
+		var str="atc";
+		var reg=/a[a-z]c/;
+		console.log(reg.test(str) );
+	</script>
+</body>
+</html>

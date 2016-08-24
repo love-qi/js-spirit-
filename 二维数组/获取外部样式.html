@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取外部样式</title>
+	<style type="text/css">
+		div{
+			width:400px;
+			height: 200px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="mydiv"></div>
+	<script type="text/javascript">
+		var mydiv=document.getElementById("mydiv");
+		console.log("width:"+mydiv.style.width);
+		//获取节点的当前样式   obj.currentStyle[attr]   此方法只兼容IE
+		//console.log("width: "+mydiv.currentStyle["width"]);
+		//                                          元素  伪类 次方法只兼容谷歌,火狐不兼容IE
+		console.log("width:"+window.getComputedStyle(mydiv,false)["width"]);
+	</script>
+</body>
+</html>

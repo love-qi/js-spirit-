@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件坐标</title>
+</head>
+<body>
+	<ul>
+		<li>aaaaaa</li>
+		<li>aaaaaa</li>
+		<li>aaaaaa</li>
+		<li>aaaaaa</li>
+		<li>aaaaaa</li>
+	</ul>
+	<img src="content1_03.png">
+	<div style="display: inline-block;width: 400px;height: 400px;">这才是真正的坐标触发事件</div>
+
+	<script type="text/javascript">
+		mydiv=document.getElementsByTagName("div")[0];
+		mydiv.onmousedown=function(event){
+			console.log("clientX: "+e.clientX+"-------clientY:"+e.clientY );
+			console.log("screenX: "+e.screenX+"-------screenY:"+e.screenY );
+		}
+	</script>
+</body>
+</html>

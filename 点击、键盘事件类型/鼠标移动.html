@@ -1,0 +1,40 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>鼠标移动</title>
+ </head>
+ <body>
+ 	<pre>
+ 	  mousedown: 鼠标按下
+ 	  mouseout:  鼠标移出
+ 	  mouseover： 鼠标移入
+ 	  mouseup：   鼠标松开
+ 	  mousemove： 鼠标移动	
+ 	</pre>
+ 	<input type="button" value="长一点，再长一点" id="btn">
+
+ 	<script type="text/javascript">
+ 		var btn=document.getElementById("btn");
+ 		btn.addEventListener("mousedown",function(){
+ 			alert("鼠标按下，触发了mousedown");
+ 		})
+ 		var btn=document.getElementById("btn");
+ 		btn.addEventListener("mouseout",function(){
+ 			alert("鼠标移出，触发了mouseout");
+ 		});
+ 		var btn=document.getElementById("btn");
+ 		btn.addEventListener("mouseover",function(){
+ 			alert("鼠标移入，触发了mouseup");
+ 		})
+ 		var btn=document.getElementById("btn");
+ 		btn.addEventListener("mouseup",function(){
+ 			alert("鼠标松开，触发了mouseup");
+ 		})
+ 		var btn=document.getElementById("btn");
+ 		btn.addEventListener("mousemove",function(){
+ 			alert("鼠标移动，触发了mousemove");
+ 		})
+ 	</script>
+ </body>
+ </html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阻止浏览器的默认行为和阻止冒泡</title>
+</head>
+<body>
+	stopPropagation：阻止冒泡事件
+	preventDefault：阻止浏览器的默认行为
+	<div id="oDiv">
+		<p id="oP">
+			<span id="oSpan">请点击我</span>
+		</p>
+	</div>
+	<a href="问题.html" id="mya">请点击我</a>
+	<a href="javascript:add()" id="myb">请点击我</a> 
+	<a href="javascript:void()" id="myc">请点击我</a>
+
+	<script type="text/javascript">
+		var oDiv=document.getElementById("oDiv");
+		var oP=document.getElementById("oP");
+		var oSpan=document.getElementById("oSpan");
+
+		oDiv.onclick=function(){
+			alert("div被点击");
+		}
+		oP.onclick=function(){
+			alert("oP被点击");
+		}
+		oSpan.onclick=function(event){
+			alert("oSpan被点击");
+			//
+		}
+	</script>
+</body>
+</html>

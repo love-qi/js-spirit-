@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单击双击事件</title>
+</head>
+<body>
+	<input type="button" value="点我" onclick="aa()" ondblclick="bb()"/>
+
+	<script type="text/javascript">
+		var isdb;
+
+		function aa(){
+			isdb=false;
+			window.setTimeout(cc,500);
+			function cc(){
+				if(isdb!=false){
+					return;
+				}
+				alert("这是单击");
+			}
+		}
+
+		function bb(){
+			isdb=true;
+			alert("这是双击");
+		}
+	</script>
+</body>
+</html>

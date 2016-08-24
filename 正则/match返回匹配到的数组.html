@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>match返回匹配到的数组</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str="a1fd345dwe4564sdff456";
+		var reg=/\d/; //  \d是数字
+		document.write(str.match(reg)+"<br/>");  //返回数组  1
+
+		//         \\反斜杠在字符串里面需要转义  
+		var reg=new RegExp("\\d","g");  //g：全局匹配，它会全部进行匹配，返回全部匹配到的数据
+		document.write(str.match(reg)+"<br/>" );
+
+		var reg=/\d\d/g;
+		document.write(str.match(reg)+"<br/>" );
+
+        //两次+：  代表\d至少出现一次，最多无限次
+        //\d+  ->  \d  || \d\d  ||\d\d\d
+		var reg=/\d+/g;
+		document.write(str.match(reg)+"<br/>");
+
+		function findNum(str){
+			return str.match(/\d+/g);
+		}
+		document.write(findNum(str));
+	</script>
+</body>
+</html>

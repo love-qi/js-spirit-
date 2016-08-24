@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匹配子项</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// var str="2016-5-20";
+		// var reg=/(\d+)-/g;
+		// str.replace(reg,function($0){
+		// 	alert($0);
+		// });
+
+		// var str="2016-5-20";
+		// var reg=/(\d-)+/g;
+		// //                    $0代表结果$1代表结果的子项
+		// str.replace(reg,function($0,$1){
+		// 	document.write($0+"<br/>");
+		// 	document.write($1+"<br/>");
+		// });
+
+		// var str="2016-5-20";
+		// var reg=/(\d+)(-)/g;
+		// str.replace(reg,function($0,$1,$2){
+		// 	document.write("$0: "+$0+"<br/>");//                      2016-    5-
+		// 	document.write("$1: "+$1+"<br/>");//代表第一个括号的子项：2016     5
+		// 	document.write("$2: "+$2+"<br/>");//代表第二个括号的子项：-        -
+		// });
+		
+		//2016-5-19  ->  2016.5.19
+		// var str="2016-5-20";
+		// var reg=/(\d+)(-)/g;
+		// str=str.replace(reg,function($0,$1,$2){
+		// 	return $1+".";
+		// });
+		// alert(str);
+		 
+		var str="abc";
+		//匹配子项( )在match里面有特殊的展示，会把子项也展示出来
+		var reg=/(ab)c/;
+	    console.log(str.match(reg) );
+	</script>
+</body>
+</html>

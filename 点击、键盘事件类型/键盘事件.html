@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>键盘事件</title>
+</head>
+<body>
+    keydown和keypress的区别，两个都是先触发的事件，再显示内容，keyup是先显示内容，再触发事件
+
+    keydown和keypress的区别：
+       keydown：用户在键盘上按下某按键是发生。一直按着某键则会不断触发（Opera浏览器除外）。
+       keypress：用户按下一个按键，并产生一个字符时发生（也就是不管类似shift、alt、ctrl之类的键，就是说用户按了一个能在屏幕上输出字符的按键keypress事件才会触发）。一直按着某键则会不断触发
+
+       也就是说，keydown和keypress的区别在于，是否能监听用户
+	<input type="text" id="txt"/>
+	<script type="text/javascript">
+		var txt=document.getElementById("txt");
+		//keydown键盘按下事件
+		//先触发事件，再显示内容
+		// txt.onkeydown=function(){
+		// 	alert(txt.value);
+		// }
+
+		//keypress事件
+		//先触发事件，再显示内容
+		// txt.onkeypress=function(){
+		// 	alert(txt.value);
+		// }
+		
+		//keyup键盘松开事件
+		//先显示内容，再触发事件
+		txt.onkeyup=function(){
+			alert(txt.value);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件对象</title>
+</head>
+<body>
+	<input type="button" value="点我" onmousedown="show(event)"/>
+
+	<script type="text/javascript">
+		function show(event){
+			//判断，当成参数的event存不存在，如果存在就是这个event，如果不存在，说明是IE，用IE的方法来取
+			var event= event ? event : window.event;  //兼容   Window.event是IE浏览器
+			alert(event.button);
+		}
+	</script>
+</body>
+</html>

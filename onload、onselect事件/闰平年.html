@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<select id="nian">
+	    <option>年</option>
+	</select>
+	<select id="yue">
+	    <option>月</option>
+	</select>
+	<select id="ri">
+		<option>日</option>
+	</select>
+	<script type="text/javascript">
+		var nian=document.getElementById("nian");
+		var yue=document.getElementById("yue");
+		var ri=document.getElementById("ri");
+		
+		for(var i=0;i<150;i++){
+			var opt=document.createElement("option");
+			opt.innerHTML=1990+i;
+			nian.appendChild(opt);
+		}
+		for(var i=1;i<13;i++){
+			var opt=document.createElement("option");
+			opt.innerHTML=i;
+			yue.appendChild(opt);
+		}
+		
+		yue.onchange=function(){
+			var index=yue.selectedIndex;
+			var opt=document.createElement("option");
+			ri.appendChild(opt);
+			if(index==0,2,4,6,7,9,11){
+			   ri.value=31;
+			}else if(index==1){
+				if((nian.value%4==0 && nian.value%100!=0) ||nian.value%400==0){
+					ri.value=29;
+				}else{
+					ri.value=28;
+				}
+			}else{
+				ri.value=30;
+			}
+			//ri.appendChild(opt);
+			
+			//if(nian.value%4==0 && nian.value%100==0 ||nian.value%400==0){
+
+			//}
+		}
+	</script>
+</body>
+</html>

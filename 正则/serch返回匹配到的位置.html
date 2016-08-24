@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>serch：返回匹配到的位置</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str="abcdefg";
+		var reg=/b/;
+		document.write(str.search(reg)+"<br/>");
+
+		var reg2=/acdefg/;//在str中没有访问到acdefg
+		document.write(str.search(reg2)+"<br/>"); //返回时-1    说明没有访问到位置
+
+		var reg3=/cdefg/;
+		document.write(str.search(reg3)+"<br/>");  //返回2，说明在索引2开始访问到
+
+		var reg4=/B/i;  //不区分大小写进行匹配
+		document.write(str.search(reg4));
+	</script>
+</body>
+</html>

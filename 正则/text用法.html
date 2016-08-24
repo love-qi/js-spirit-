@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>text用法</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str="abcde";
+		//定义一个正则，用来匹配字符串b
+		var reg=/f/;
+		//test：判断字符串里面是否能够匹配到正则
+		document.write(reg.test(str) );
+
+		var str2="adfsdfds1";
+		//\D：非数字
+		var reg2=/\D/;
+		//Document.write(reg2.test(str2) );
+		if(reg2.test(str2)){
+			alert("bu全是数字");
+		}else{
+			alert("全是数字");
+		}
+	</script>
+</body>
+</html>
