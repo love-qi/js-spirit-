@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定义一个封装类</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Person( name,age){
+			this.name=name;
+			this.age=age;
+		}
+		Person.prototype={
+			sayHello:function(name){
+				document.write(this.name+" 说hello to "+name+"<br/>");
+			},
+			sayBye:function(name){
+				document.write(this.name+" 说 bye to "+name+"<br/>");
+			}
+		};
+		var p1=new Person("张三",20);
+		p1.sayHello("smith");
+		//对sayHello重写
+		Person.prototype.sayHello=function(name){
+			document.write(this.name+"说您好"+name+"<br/>");
+		}
+		p1.sayHello("smith");
+		p1.sayBye("tom");
+
+		Person.prototype.eat=function(foods){
+			document.write(this.name+"吃"+foods+"<br>");
+		}
+		p1.eat("apple");
+		p1.sayHello("apple");
+	</script>
+</body>
+</html>

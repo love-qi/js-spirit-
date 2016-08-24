@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用临时构造器来解决两个问题</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Shape(){}
+		Shape.prototype.name="形状";
+		Shape.prototype.toString=function(){
+	    	return this.name;
+		};
+
+		function TwoDShape(){}
+		var F=function(){};
+		F.prototype=Shape.prototype;
+		TwoDShape.prototype=new F();
+		TwoDShape.prototype.constructor=TwoDShape;
+		TwoDShape.prototype.name="2D形状";
+
+		function Triangle(bottom,height){
+			this.bottom=bottom;
+			this.height=height;
+		}
+		var  G=function(){
+
+		}
+		G.prototype=TwoDShape.prototype;
+		Triangle.prototype=new G();
+
+		Triangle.prototype.constructor=Triangle;
+		Triangle.prototype.name='三角形';
+		Triangle.prototype.getArea=function(){
+			return this.bottom*this.height/2;
+		}
+		
+		var three=new Triangle(4,5);
+		document.write( three.getArea()+"<br/>");
+		document.write(three.toString()+"<br/>");
+
+		var a=new Shape();
+		document.write(a.toString());
+	</script>
+</body>
+</html>

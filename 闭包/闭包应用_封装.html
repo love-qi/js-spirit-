@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//var setAge, getAge;  //声明两个全局变量
+
+	(
+	   function(){
+	       var age=0;    //在一个函数的内部定义的属性在函数外无法直接访问
+	       setAge=function(a){  //这个全局变量引用一个闭包，在闭包中去访问这个函数中的属性
+	   	           age=a;
+	       };
+	       getAge=function(){
+	       	    return age;
+	       };
+	   }
+	)();
+
+	document.write( getAge()+"<br/>" );
+	setAge( 20);
+	document.write( getAge() );
+	</script>
+</body>
+</html>

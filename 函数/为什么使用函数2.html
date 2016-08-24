@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var classes1=[ {
+			name:'smith',
+			age:19,
+			gender:1
+		},{
+			name:'tom',
+			age:20,
+			gender:0
+		},{
+			name:'john',
+			age:21,
+			gender:1
+		}];
+		var classes2=[ {
+			name:'rose',
+			age:21,
+			gender:0
+		},{
+			name:'tom',
+			age:22,
+			gender:0
+		},{
+			name:'miss',
+			age:21,
+			gender:1
+		}];
+		function getAverageAge( arr ){
+			//求平均年龄
+			var AvgAge=0;
+			var length=arr.length;  // 3
+			var sum=0;
+			for(var i=0;i<length;i++){
+				var stu=arr[i];  //从数组中取出的每个元素是一个对象
+				sum=sum+stu.age;  //从每个对象中取出年龄   变量名.属性名
+			}
+			AvgAge=sum/length;
+			return AvgAge;
+		}
+		alert( "一班的平均年龄："+ getAverageAge(classes1));
+
+
+		//求出每一个班的男女比例。
+		function getRatio( arr ){
+			var female=0, male=0;
+			var length=arr.length;
+			var r;
+			for( var i=0;i<length;i++){
+				var a=arr[i];
+				if( a.gender==1){
+					male++;
+				}else{
+					female++;
+				}
+			}
+			r=male/female;
+			return r;
+		}
+		document.write( "一班的男女比例为："+ getRatio(classes2));
+	</script>
+</body>
+</html>

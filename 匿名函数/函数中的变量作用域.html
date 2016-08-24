@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数中的变量的作用域</title>
+</head>
+<body>
+	<script type="text/javascript">
+	    //全局变量
+		var val="apple";
+		function funA(){
+			val="pear";  //  在这里，val就是全局变量val
+			document.write("inner val:"+ val+"<br/>");
+		}
+
+        //调用函数funA   funA()
+        //且funA中操作的变量就是全局变量
+		funA();
+		document.write( "outer val:"+val+"<br/>");
+
+        //局部变量
+		function funB(){
+			//这里使用 var声明了一个局部变量，虽然名字与全局变量，但局部变量优先于全局变量。
+			var val="banana";
+			document.write("inner2 val:"+ val+"<br/>");
+		}
+		funB();
+		document.write( "outer val2:"+ val+"<br/>");
+
+		//小结：写函数时，声明变量都要加 var
+		function funC(){
+			var cc="zy"; //局部
+			return cc;
+		}
+		//funC();
+		document.write("在外面访问函数funC中的cc："+ funC());
+	</script>
+</body>
+</html>

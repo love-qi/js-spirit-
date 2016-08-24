@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var person={name:'lqq',age:21};
+
+		document.write(person.name+"<br/>");  //输出属性的两种方法
+		document.write(person['age']+"<br/>");
+
+		person.showInfo=function(){
+			document.write("当前对象的信息是："+this.name+"  "+this['age']+"<br/>");
+		}
+
+		person.showInfo();
+		person['showInfo']();
+
+		document.write("=======<br/>");
+
+		 showInfoInobject(person);
+
+		function showInfoInobject( obj){
+			for(var key in obj){
+				if( obj[key] instanceof Function){
+					obj[key]();
+				}else{
+					document.write( key+":"+obj[key]+"<br/>");
+				}
+			}
+			document.write("<hr/>");
+		}
+	</script>
+</body>
+</html>

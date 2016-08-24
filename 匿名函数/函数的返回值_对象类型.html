@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数的返回值-对象类型</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function add( vala ,valb ){
+			var sum=vala+valb;
+			//      {}是对象 a，b，result则是它 的属性
+			return {result:sum, a:vala, b:valb};
+		}
+
+		//需求： 计算 返回的值：{a:xx  b:xxx result：xxx}
+
+		var r=add(1,2);
+		document.write( r.a+"+"+r.b+"="+r.result +"<br/>");
+
+		function add2(){
+			var sum=0;
+			var arr=new Array();
+			for( var i=0;i<arguments.length;i++){
+				sum+=arguments[i];
+				//不能直接调用arguments ，所以要把他赋给arr
+				arr[i]=arguments[i];
+			}
+			return { result:sum, origin:arr};
+		}
+		var r2=add2(1,2,3,4,5,6,7);
+		var str=r2.origin.join("+");//=> 1+2+3+4+5+6+7
+		document.write( str+"="+r2.result );
+	</script>
+</body>
+</html>

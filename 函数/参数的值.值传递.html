@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5_参数的值_基本类型_值传递</title>
+</head>
+<body>
+	<script type="text/javascript">
+	    //如果实参传递的是基本类型数据，则传值方式为值传递  （复制当前的值）
+		function increment( number){
+			number=number+1;
+			return number;
+		}
+		var a=1;
+		var x=increment(a);
+
+		alert(  a  );  //1
+		alert(  x  );  //2
+	</script>
+</body>
+</html>

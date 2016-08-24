@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匿名函数_重写函数自身</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function showTable(){
+			var r=2;
+			if( window.ActiveXobject){
+				r=1;
+			}
+			if(r==1){
+				showTable=function(){
+					var arr=arguments[0];
+					document.write("<table border='1px' width='500px'>");
+					for(var i=0;i<arr.length;i++){
+						document.write("<tr/>");
+						document.write("<td>"+arr[i].name+"</td><td>"+arr[i].age+"</td>");
+						document.write("</tr>");
+					}
+					document.write("</table>");
+				}
+			}else if(r==2){
+				showTable=function(){
+					var arr=arguments[0];
+					document.write("<ul>");
+					for( var i=0;i<arr.length;i++){
+						document.write("<li>");
+						document.write(arr[i].name+" "+arr[i].age);
+						document.write("</li>");
+					}
+					document.write("</ul>");
+				}
+			}
+		}
+		function showTree(){
+			var r=2;
+			if( window.ActiveXobject){
+				r=1;
+			}
+			if(r==1){
+				showTree=function(){
+					document.write("以IE的特性来显示tree<br />");
+				}
+			}else if(r==2){
+				showTree=function(){
+					document.write("以ff的特性来显示tree<br />");
+				}
+			}
+		}
+		(function(){
+			showTable();
+			showTree();
+		})();
+
+		var arr=[(name:"smith",age:20),(name:"tom",age:22)];
+		showTable( arr );
+	</script>
+</body>
+</html>

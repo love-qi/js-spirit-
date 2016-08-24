@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//定义父类
+		function Person( name,sal){
+			this.name=name;
+			this.sal=sal;
+		}
+
+		Person.prototype={
+			toString:function(){
+				return "姓名"+this.name+"工资"+this.sal;
+			},
+			work:function(){
+				document.write(this.name+"开始工作："+"<br/>");
+			}
+		}
+		//定义子类
+		function Emp(name,sal,no){
+			Person.call(this,name,sal);
+			this.no=no;
+		}
+		Emp.prototype=new Person(); //通过这句代码实现了继承
+		Emp.prototype.constructor=Emp;  //指定构造函数
+
+		//重写toString
+		Emp.prototype.toString=function(){
+			return "姓名"+this.name+"工资"+this.sal+"编号："+this.no;
+		}
+		var emp=new Emp("张三",200,1);
+		document.write(emp.toString());
+
+		function Magager(name,sal,allowance){
+			    Person.call(this,name,sal);
+				this.allowance=allowance;
+			}
+			Magager.prototype=new Person();
+			Magager.prototype.constructor=Magager;
+			Magager.prototype.toString=function(){
+				return "姓名"+this.name+" 工资："+this.sal+" 补助 "+this.allowance;
+
+			}
+			var m1=new Magager("李四",4100,1000);
+			document.write(m1.toString() );
+		}
+	</script>
+</body>
+</html>

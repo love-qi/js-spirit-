@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr=["apple","pear","banana"];
+		var innerArray=new Array();
+
+
+		for(var i=0;i<arr.length;i++){
+			var item=arr[i];
+			innerArray[i]=function(){
+				document.write( item +"<br/>");
+			}
+		}
+		for( var i=0;i<innerArray.length;i++){
+			innerArray[i]();
+		}
+	</script>
+</body>
+</html>

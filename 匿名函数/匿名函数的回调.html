@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匿名函数的回调</title>
+</head>
+<body>
+	<script type="text/javascript">
+	     //需求：以指定的格式输出结果  （将多个数字*2，）
+		// function show( arr ){
+		// 	for( var i=0;i<arr.length-1;i++){
+		// 		document.write( arr[i]+"<br/>");
+		// 	}
+		// }
+
+		// function show2(arr){
+		// 	document.write("<ul>");
+		// 	for(var i=0;i<arr.length;i++){
+		// 		document.write("<li>"+arr[i]+"</li>");
+		// 	}
+		// 	document.write("</ul>");
+		// }
+		function jisuan(){
+			//将1,2,3,4从arguments中取出，存到一个数组中
+			var arr=new Array();
+			for( var i=0;i<arguments.length;i++){
+				arr[i]=arguments[i]*2;
+			}
+			//再调用 show（  数组）；
+			//判断arguments最后一个参数是否为 function
+			 if( (typeof arguments[arguments.length-1]) =='function'){
+			 	//show(arr);
+			 	arguments[arguments.length-1](arr);
+			 }
+		}
+		//jisuan(1,2,3,4,show2);
+		jisuan(1,2,3,4, function ( arr ){
+			for( var i=0;i<arr.length-1;i++){
+				document.write( arr[i]+"<br/>");
+			}
+		});
+		jisuan(1,2,3,4, function show2(arr){
+			document.write("<ul>");
+			for(var i=0;i<arr.length-1;i++){
+				document.write("<li>"+arr[i]+"</li>");
+			}
+			document.write("</ul>");
+		});
+	</script>
+</body>
+</html>

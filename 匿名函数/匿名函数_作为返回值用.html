@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匿名函数-作为返回值用</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function a(){
+			document.write("hello<br />");
+
+			return function(name){
+				document.write("bye bye"+name+"<br/>");
+			};
+		}
+		a()("  李奇奇");
+	</script>
+</body>
+</html>

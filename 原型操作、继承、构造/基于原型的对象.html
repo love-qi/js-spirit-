@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基于原型的对象</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Animal(){}
+		Animal.prototype={
+			group:"动物",
+			gender:" ",
+			eat:function(){
+				return "进食";
+			},
+			sleep:function(){
+				return this.group+" "+this.gender;
+			}
+		}
+		//定义子类
+		function Bird(){}
+		//实现继承
+		Bird.prototype=new Animal();  //最关键
+		Bird.prototype.fly=function(){
+			return "飞行";
+		}
+		//创建一只鸟对象
+		var b1=new Bird();
+		document.write(b1.toString()+"  "+b1.eat()+"  "+b1.sleep()+"  "+b1.fly());
+
+		//new b1.constructor(); ->这样创建的对象不是Bird（）而是Object
+		document.write( b1.constructor+"<br/>");
+
+		var newbird=new b1.constructor();
+		document.write( (newbird instanceof Bird)+"<br/>");
+
+		//让 b1能正确反映自己的构造方法  解决方案
+		//在继承的时候，修改constuctor的值非常重要，以便进行后面的对象类型判断
+		Bird.prototype.constructor=Bird;
+		document.write( b1.constructor+"<br/>");
+		var newbird2=new b1.constructor();
+		document.write( (newbird2 instanceof Bird)+"<br/>");
+	</script>
+</body>
+</html>

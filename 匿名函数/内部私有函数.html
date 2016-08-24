@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内部私有函数</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function show(){
+			//show函数的子函数
+			//子函数用来包装一些特殊算法
+			function son(){
+				document.write("hello"+"<br/>");
+			}
+			//调用子函数
+			son();
+		}
+
+		//在show（）的外面是不能调用到 son（）；
+		//son（）； //ReferenceError:son is not defined;
+		//通过调用父函数，通过父函数来调用子函数
+		show();
+		function jisuan( a,b,op){
+			function add(a,b){
+				return a+b;
+			}
+			function sub(a,b){
+				return a-b;
+			}
+			function mul(a,b){
+				return a*b;
+			}
+			if(op=="+"){
+				return add(a,b);
+			}else if(op=="-"){
+				return sub(a,b);
+			}else {
+				return mul(a,b);
+			}
+		}
+
+		document.write(  jisuan(2,4,"+") );
+
+
+	</script>
+</body>
+</html>

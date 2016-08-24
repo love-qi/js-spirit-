@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	    //第一种方案
+		// function f(){
+		// 	function invoke(i){
+		// 		return i*2;
+		// 	}
+		// 	var a=[];
+		// 	for( var i=0;i<3;i++){
+		// 		a[i]=invoke(i);
+		// 	}
+		// 	return a;
+		// }
+		// var result=f();
+		// document.write( result[0]+"<br/>"+result[1]+"<br/>"+result[2] );
+
+
+		function f(){
+			
+			var a=[];
+			for( var i=0;i<3;i++){
+				a[i]=function(i){
+				return i*2;
+			}(i);
+			}
+			return a;
+		}
+		var result=f();
+		document.write( result[0]+"<br/>"+result[1]+"<br/>"+result[2] );
+	</script>
+</body>
+</html>

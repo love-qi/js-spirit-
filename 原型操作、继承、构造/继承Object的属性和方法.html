@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>继承Object的属性和方法</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var num=new Number(123);  //将123包装成一个 Number对象
+		document.write(num.toString()+"  "+typeof(num)+"<br/>");
+		document.write(typeof(123)+"<br/>");
+
+		document.write( num.valueOf()+"<br/>")//取出一个对象中包装的值
+
+		//hasOwnProperty()判定一个对象中是否有某个属性
+		var car={
+			color:'red',
+			run:function(){ alert('run');}
+		};
+		document.write(car.hasOwnProperty('color')+"  "+car.hasOwnProperty('logo'));
+	</script>
+</body>
+</html>

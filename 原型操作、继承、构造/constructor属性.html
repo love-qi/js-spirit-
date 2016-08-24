@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>constructor属性</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Person( name,age){
+			this.name=name;
+			this.age=age;
+		}
+		//constructor属性，利用它可以判断一个对象的来源
+		var p=new Person("张三",20);
+		document.write(p.constructor+"<br/>");
+		//利用p对象的constructor返回的源码，来创建另一个对象
+		var p2=new p.constructor("李四",30);
+		document.write(p2.name+"  "+p2.age+"<br/>");
+		document.write(p2.constructor+"<br/>");
+		//利用constructor来查看一个对象是否为某个特定的类型
+		document.write((p2.constructor==Person)+"<br/>");
+		document.write((p2.constructor==Object)+"<br>");
+	</script>
+</body>
+</html>

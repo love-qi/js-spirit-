@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+    <p>第一行</p>
+    <p>第二行</p>
+    <p>第三行</p>
+    
+	<script type="text/javascript">
+	//错误的情况：匿名函数没有被调用，所以它并没有保存当前的值
+		// function add(nodes){
+		// 	for( var i=0;i<nodes.length;i++){
+		// 		var node=nodes[i];
+		// 		node.onclick=function(){
+		// 			alert( i+1 );
+		// 		}
+		// 	}
+		// }
+		
+	// 解决方案一	
+		// function add(nodes){
+		// 	//使用了嵌套函数
+		// 	function invoke( i ){
+		// 		return function(){
+		// 			alert(i+1 );
+		// 		}
+		// 	}
+		// 	for( var i=0;i<nodes.length;i++){
+		// 		var node=nodes[i];
+		// 		node.onclick=invoke( i );
+		// 	}
+		// }
+	// 解决方案二	
+		function add(nodes){
+			
+			for( var i=0;i<nodes.length;i++){
+				var node=nodes[i];
+				node.onclick=function ( i ){
+				return function(){
+					alert(i+1 );
+				}
+			}( i );
+			}
+		}
+		var nodes= document.getElementsByTagName("p");
+		add(nodes);
+	</script>
+</body>
+</html>

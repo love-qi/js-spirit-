@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数的返回值_简单类型</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function add(){
+			var sum=0;
+			for( var i=0;i<arguments.length;i++){
+				sum+=arguments[i];
+			}
+			return sum;
+		}
+		document.write( add(1,2,3)+"<br/>");
+
+        //此函数没有设计返回值，则undefined
+		function show(){
+			var x=5;
+			//return x;
+		}
+
+		document.write( show() );
+	</script>
+</body>
+</html>

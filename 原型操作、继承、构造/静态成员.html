@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>静态成员</title>
+</head>
+<body>
+	<script type="text/javascript">
+	  //需求：请在Object类中扩展一个sayHi（）的方法，这个方法可以随时调用。（即无需new对象）
+		Object.sayHi=function(){
+			alert('hello');
+		}
+		Object.sayHi();
+
+		Object.prototype.sayBye=function(){
+			alert('bye');
+		}
+	//prototype原型就要new
+		var obj=new Object();
+		obj.sayBye();
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function selfNext( arr){
+			var index=0;
+			return function(){       //=>  所以输出是一个函数
+				return arr[index++];
+			}
+		}
+		var mynext=selfNext( [1,2,3,4] );
+
+		while( a=mynext() ){
+			document.write(a+"<br/>");
+		}
+		// document.write( mynext()+"<br/>");  //1  => （）指的是一个函数
+		// document.write( mynext()+"<br/>");  //2
+		// document.write( mynext()+"<br/>");  //3     默写4,8,10
+	</script>
+</body>
+</html>

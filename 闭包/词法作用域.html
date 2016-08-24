@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>词法作用域</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// function f1(){
+		// 	var a=2;
+		// 	f2();
+		// }
+		// function f2(){
+		// 	return a;
+		// }
+		// document.write( f2());
+
+
+		//解决方案
+		function f1(){
+			var a=2;
+			function f2(){
+				return a;
+			}
+			return f2();
+		}
+
+		document.write(f1()+"<br/>");
+
+		//解决方案三
+		function f1(){
+			var a=2;
+			return function(){
+				return a;
+			}();
+		}
+		document.write(f1());
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基于原型的对象_实现多继承</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Animal(group,gender){
+			this.group=group;
+			this.gender=gender;
+		}
+		Animal.prototype.showInfo=function(){
+			document.write("类别："+this.group+" 性别："+this.gender+"<br/>");
+		}
+
+		function Bird(group,gender){
+			layEggs.call(this);
+			Animal.call(this,group,gender);
+		}
+		Bird.prototype=new Animal();
+		Bird.prototype.
+	</script>
+</body>
+</html>

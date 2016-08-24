@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	     //外部函数
+	     //可以多次调用inner函数
+		function inner(x){
+			return function( ){
+				return x*2;
+			}
+		}
+		function f(){
+			var a=[];
+			for( var i=0;i<3;i++){
+				a[i]=inner(i);
+			}
+			return a;
+		}
+		var result=f();
+		document.write( result[0]( )+"<br/>"+result[1]( )+"<br/>"+result[2]( ) );
+	</script>
+</body>
+</html>

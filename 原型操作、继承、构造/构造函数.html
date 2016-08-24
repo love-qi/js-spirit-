@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>构造函数</title>
+</head>
+<body>
+	<script type="text/javascript">
+	   //构造函数：就是用来初始化一个对象的成员属性的函数
+	   //它就是好一个函数，它的功能是赋值
+		function Person( name,age){
+			//this指的是当前的对象的name  name指的是形参的name
+			//最开始，this.name是空值,接着通过这句代码将name的实参值传到this.name中保存
+			this.name=name;
+			this.age=age;
+		}
+
+		var zs=new Person('张三',20);
+		document.write(zs.name+"  "+zs.age+"<br/>");
+		document.write(name+" "+age+"<br/>");
+	</script>
+</body>
+</html>

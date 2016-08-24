@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function f(){
+			function inner(x){
+				return x*2;
+			}
+		}
+
+		var a=[];
+		for( var i=0;i<3;i++){
+			a[i]=inner(i);
+		}
+	</script>
+</body>
+</html>

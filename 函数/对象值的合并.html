@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象值的合并</title>
+</head>
+<body>
+	<script type="text/javascript">
+	function showBookInfo(  book ){
+		var defaultvalue={
+			name:'未知书名',
+			pages:'页数',
+			author:'lqq'
+		};
+		book=mergeObject(  defaultvalue,book);
+		document.write( "书名"+book.name+" 页数"+book.pages+"  作者"+book.author);
+	}
+
+
+	function mergeObject(  defaultvalue, realvalue){
+		if( realvalue  &&   typeof realvalue=='object' ){
+			for(var key in realvalue){
+				defaultvalue[key]=realvalue[key]|| defaultvalue[key]
+			}
+		}
+		return defaultvalue;
+	}
+
+	var book1={  name:'java',pages:500};
+	showBookInfo(book1);
+	</script>
+</body>
+</html>

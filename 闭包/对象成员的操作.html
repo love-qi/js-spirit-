@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象成员的操作</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var person={ name:'lqq',age:21};
+		showInfoInobject(person );
+		//添加成员（ 属性 ，函数） 
+		person.sex='male';
+		showInfoInobject(person );
+
+		person.showInfo=function(){
+			document.write("信息为：");
+			showInfoInobject(this);  //this
+		}
+		showInfoInobject(person );
+
+		//修改成员
+		person.showInfo=function(){
+			document.write("当前对象信息为：");
+			showInfoInobject( this);
+		}
+		showInfoInobject(person);
+
+		//删除成员
+		delete person['sex'];
+		showInfoInobject(person);
+
+		//工具方法：循环输出对象中的各个成员
+		function showInfoInobject(obj){
+			for( var key in obj){
+				document.write( key+":"+obj[key]+"<br/>");
+			}
+			document.write("<hr/>");
+		}
+	</script>
+</body>
+</html>

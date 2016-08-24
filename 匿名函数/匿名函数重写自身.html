@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匿名函数—重写函数自身</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function a(){
+			document.write("hello <br />");
+			a=function(){
+				document.write( "bye<br />");
+			}
+		}
+		a();  //第一次执行
+		a();
+
+		function showTable(){
+			document.write("检测浏览器<br />");
+			var r=2;
+			if(r==1){
+				showTable=function(){
+					document.write("以IE的特性来显示table<br />");
+				}
+			}else if(r==2){
+				showTable=function(){
+					document.write("以Firefox的特性来显示table<br />");
+				}
+			}
+		}
+
+		function showTree(){
+			document.write("检测浏览器<br />");
+			var r=2;
+			if(r==1){
+				showTee=function(){
+					document.write("以Firefox的特性来显示tree<br />");
+				}
+			}else if(r==2){
+				showTree=function(){
+					document.write("以Firefox的特性来显示tree<br />");
+				}
+		    }
+		}
+		//在自调用的代码一次性运行一下这些函数，这样这些函数就识别出浏览器的类型，并将自身重写
+		(function(){
+			showTable();
+			showTree();
+		})();
+
+		showTable();
+		showTree();
+	</script>
+</body>
+</html>

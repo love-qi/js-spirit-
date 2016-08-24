@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>声明函数—采用Function内置对象实现</title>
+</head>
+<body>
+	<script type="text/javascript">
+	    //js引擎中有一个内置对象Function也可以创建函数
+		var add=new Function("a","b","document.write(a+b+'<br />')");
+		add(2,3);
+
+
+		//相当于:
+		function add1(a,b){
+			document.write(a+b);
+		}
+		add1(4,5);
+	</script>
+</body>
+</html>
